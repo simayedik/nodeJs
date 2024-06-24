@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="container">
+   
+    <div class="row justify-content-center my-5">
+        <div class="col-6">
+            <form method="post" action="/login">
+                <div class="mb-3 ">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input class="form-control" name="email" value="<%= formData.email || '' %>">
+                  <% for (error of errors) { %>
+                    <% if (error.path==='email' ) { %>
+                        <div class="error">
+                            <%= error.msg %>
+                        </div>
+                        <% } %>
+                            <% } %>
+                
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="sifre">
+                  <% for (error of errors) { %>
+                    <% if (error.path==='sifre' ) { %>
+                        <div class="error">
+                            <%= error.msg %>
+                        </div>
+                        <% } %>
+                            <% } %>
+                </div>
+               
+                    <button type="submit" class="btn btn-outline-info ">Giriş Yap</button>
+                </form>
+                           
+        </div>
+      
+    </div>
+
+   </div>
+</body>
+</html>
